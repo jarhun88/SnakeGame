@@ -23,6 +23,7 @@ function draw() {
     snake.show();
     food.show();
 
+
 }
 
 function keyPressed() {

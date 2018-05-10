@@ -21,7 +21,10 @@ function Snake(){
         this.x = constrain(this.x, 0, borderWidth - scl);
         this.y = constrain(this.y, 0, borderHeight - scl);
 
-        
+        if (snake.eats(food)){
+            food = new Food();
+        }
+
     };
 
 
