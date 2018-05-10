@@ -12,7 +12,7 @@ function Snake(){
 
     this.update = function() {
         // for (let i = 0; i < this.body.size(); i++){
-        //     this.body[i] = 
+        //     this.body[i] =
         // }
 
         this.x = this.x + this.xspeed * scl;
@@ -21,9 +21,7 @@ function Snake(){
         this.x = constrain(this.x, 0, borderWidth - scl);
         this.y = constrain(this.y, 0, borderHeight - scl);
 
-        if (snake.eats(food)){
-            food = new Food();
-        }
+        
     };
 
 
