@@ -1,6 +1,6 @@
 function Food() {
-    this.x = floor(random(0, (borderWidth-scl)/20)) * 20;
-    this.y = floor(random(0, (borderHeight-scl)/20)) * 20;
+    this.x = floor(random(0, (borderWidth-scl)/scl)) * scl;
+    this.y = floor(random(0, (borderHeight-scl)/scl)) * scl;
 
     this.show = function() {
         fill(255, 0, 100);
