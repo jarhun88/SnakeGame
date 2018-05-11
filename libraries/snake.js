@@ -3,7 +3,8 @@ function Snake(){
     this.y = 0;
     this.xspeed = 1;
     this.yspeed = 0;
-    this.body = [];
+    this.tail = [];
+    this.total = 0;
 
     this.changeDirection = function(x, y) {
         this.xspeed = x;
@@ -11,10 +12,16 @@ function Snake(){
     };
 
     this.update = function() {
-        // for (let i = 0; i < this.body.size(); i++){
-        //     this.body[i] =
-        // }
 
+        if (this.total === this.tail.length)
+            for (let i = 0; i < this.tail.length-1; i++){
+                this.tail[i] = this.tail[i+1];
+            }
+        this.tail[this.total-1] = createVector(this.x, this.y);
+
+        // console.log(this.total);
+        // console.log(this.tail.length);
+        // addition
         this.x = this.x + this.xspeed * scl;
         this.y = this.y + this.yspeed * scl;
 
@@ -24,18 +31,23 @@ function Snake(){
         if (snake.eats(food)){
             food = new Food();
         }
-
     };
 
 
     this.show = function() {
         fill(255);
+        for (let i = 0; i < this.tail.length; i++) {
+            rect(this.tail[i].x, this.tail[i].y, scl, scl);
+        }
+        //     fill(255);
         rect(this.x, this.y, scl, scl);
     };
 
     this.eats = function(food) {
-        return (this.x === food.x && this.y === food.y);
+        if (this.x === food.x && this.y === food.y) {
+            this.total++;
+            return true;
+        }
+        else return false;
     }
-
-
 }
