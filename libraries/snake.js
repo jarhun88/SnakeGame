@@ -50,4 +50,14 @@ function Snake(){
         }
         else return false;
     }
+
+    this.death = function() {
+        for (let i = 0; i < this.tail.length; i ++){
+            var body = this.tail[i];
+            if (this.x === body.x && this.y === body.y) {
+                this.total = 0;
+                this.tail = [];
+            }
+        }
+    }
 }

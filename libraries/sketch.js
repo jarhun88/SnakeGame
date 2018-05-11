@@ -22,6 +22,7 @@ function draw() {
     snake.update();
     snake.show();
     food.show();
+    snake.death();
 
 
 }
